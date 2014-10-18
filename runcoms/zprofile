@@ -13,6 +13,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 export GOPATH="$LOC/software/learn/go"
 export ASPROOT="$HOME/.local/share/asp"
 
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
 export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
 

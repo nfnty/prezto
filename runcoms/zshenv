@@ -8,7 +8,8 @@
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ -z "$XDG_CONFIG_HOME" ]]
 then
-	export XDG_CONFIG_HOME="$HOME/.config/"
+	export XDG_CONFIG_HOME="$HOME/.config"
+	export XDG_CACHE_HOME="$HOME/.cache"
 fi
 
 if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
