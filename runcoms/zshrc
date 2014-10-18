@@ -11,3 +11,55 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+KEYTIMEOUT=1
+
+bindkey -M vicmd "x" undo
+bindkey -M vicmd "X" redo
+bindkey -M vicmd "l" vi-delete-char
+bindkey -M vicmd "e" history-substring-search-down
+bindkey -M vicmd "u" history-substring-search-up
+bindkey -M vicmd "h" vi-backward-char
+bindkey -M vicmd "t" vi-forward-char
+bindkey -M vicmd "=" vi-match-bracket
+bindkey -M vicmd "j" vi-join
+bindkey -M vicmd "&" list-choices
+bindkey -M vicmd "E" down-history
+bindkey -M vicmd "U" up-history
+bindkey -M vicmd "/" history-incremental-pattern-search-backward
+
+bindkey -M vicmd -r "n"
+bindkey -M vicmd -r "m"
+bindkey -M vicmd -r "|"
+bindkey -M vicmd -r "R"
+bindkey -M vicmd -r "k"
+bindkey -M vicmd -r "T"
+bindkey -M vicmd -r "J"
+bindkey -M vicmd -r "G"
+bindkey -M vicmd -r "?"
+bindkey -M vicmd -r "+"
+bindkey -M vicmd -r "\-"
+bindkey -M vicmd -r "%"
+bindkey -M vicmd -r ":"
+bindkey -M vicmd -r " "
+bindkey -M vicmd -r "#"
+bindkey -M vicmd -r "^D"
+bindkey -M vicmd -r "^G"
+bindkey -M vicmd -r "^H"
+bindkey -M vicmd -r "^J"
+bindkey -M vicmd -r "^N"
+bindkey -M vicmd -r "^P"
+bindkey -M vicmd -r "^R"
+bindkey -M vicmd -r "^[OA"
+bindkey -M vicmd -r "^[OB"
+bindkey -M vicmd -r "^[OC"
+bindkey -M vicmd -r "^[OD"
+bindkey -M vicmd -r "^[[A"
+bindkey -M vicmd -r "^[[B"
+bindkey -M vicmd -r "^[[C"
+bindkey -M vicmd -r "^[[D"
+bindkey -M vicmd -r "\'"
+bindkey -M vicmd -r "\`"
+bindkey -M vicmd -r "\""
+bindkey -M vicmd -r "^?"
+
+stty -ixon

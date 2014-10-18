@@ -56,7 +56,7 @@ alias mv="${aliases[mv]:-mv} -i"
 alias p='${(z)PAGER}'
 alias po='popd'
 alias pu='pushd'
-alias rm="${aliases[rm]:-rm} -i"
+alias rm="${aliases[rm]:-rm} -I"
 alias type='type -a'
 
 # ls
@@ -93,7 +93,7 @@ fi
 alias l='ls -1A'         # Lists in one column, hidden files.
 alias ll='ls -lh'        # Lists human readable sizes.
 alias lr='ll -R'         # Lists human readable sizes, recursively.
-alias la='ll -A'         # Lists human readable sizes, hidden files.
+alias la='ll -a'         # Lists human readable sizes, hidden files.
 alias lm='la | "$PAGER"' # Lists human readable sizes, hidden files through pager.
 alias lx='ll -XB'        # Lists sorted by extension (GNU only).
 alias lk='ll -Sr'        # Lists sorted by size, largest last.
