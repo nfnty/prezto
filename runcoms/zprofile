@@ -5,6 +5,23 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+export LOC='/store/loc/nfnty/'
+
+export QT_STYLE_OVERRIDE=gtk
+export RANGER_LOAD_DEFAULT_RC=FALSE
+
+export GOPATH="$LOC/software/learn/go"
+export ASPROOT="$HOME/.local/share/asp"
+
+export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
+export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
+
+export PYLINTHOME="$HOME/.local/share/pylint"
+export IPYTHONDIR="$HOME/.local/share/ipython"
+export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
+
+export GNUPGHOME="$HOME/.config/gnupg"
+export SYSSCREENRC="$HOME/.config/screen.conf"
 #
 # Browser
 #
@@ -15,7 +32,7 @@
 
 export EDITOR='vim'
 export VISUAL='vim'
-export PAGER='less'
+export PAGER="/bin/sh -c \"sed -r 's/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | col -x -b | vim -R -c 'set noswf ft=man nomod fdl=99' -\""
 
 #
 # Language
@@ -44,7 +61,6 @@ typeset -gU cdpath fpath mailpath path
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='-F -i -M -R -w -X -z-4'
 #
 # Temporary Files
 #

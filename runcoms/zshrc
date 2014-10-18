@@ -13,6 +13,23 @@ fi
 # Customize to your needs...
 KEYTIMEOUT=1
 
+alias sshon='ssh-add'
+alias sshoff='ssh-add -D'
+
+ssh_array=( 'rservy' 'dservy' 'rmail' 'rauto' )
+for remote in $ssh_array; do
+	alias "$remote"="ssh $remote"
+	alias "m$remote"="sshfs ${remote}:/ /remote/$remote"
+	alias "um$remote"="fusermount -u /remote/$remote"
+done
+unset ssh_array
+
+alias cdl='cd /store/loc/nfnty/'
+alias update='sudo pacman -Syu; echo; cower -u'
+alias ydl='youtube-dl -f 137+140'
+alias pager="$PAGER"
+alias dpager="vim -R -c 'set noswf ft=diff nomod fdl=99' -"
+
 bindkey -M vicmd "x" undo
 bindkey -M vicmd "X" redo
 bindkey -M vicmd "l" vi-delete-char

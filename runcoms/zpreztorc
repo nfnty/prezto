@@ -14,6 +14,8 @@
 
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:module:utility:diff' color 'no'
+# zstyle ':prezto:module:utility:make' color 'no'
 
 # Add additional directories to load prezto modules from
 # zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
@@ -30,20 +32,23 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'archive' \
-  'rsync' \
-  'screen' \
-  'history-substring-search' \
-  'syntax-highlighting' \
-  'prompt'
+	'environment' \
+	'terminal' \
+	'editor' \
+	'history' \
+	'directory' \
+	'spectrum' \
+	'utility' \
+	'completion' \
+	'pacman' \
+	'archive' \
+	'git' \
+	'rsync' \
+	'ssh' \
+	'screen' \
+	'history-substring-search' \
+	'syntax-highlighting' \
+	'prompt'
 
 #
 # Autosuggestions
