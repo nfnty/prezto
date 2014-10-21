@@ -65,6 +65,7 @@ alias gdm='git ls-files --modified'
 alias gdu='git ls-files --other --exclude-standard'
 alias gdk='git ls-files --killed'
 alias gdi='git status --porcelain --short --ignored | sed -n "s/^!! //p"'
+alias gdr='git reflog --no-color'
 
 # Fetch (f)
 alias gf='git fetch'
@@ -93,20 +94,16 @@ alias gix='git rm -r --cached'
 alias giX='git rm -rf --cached'
 
 # Log (l)
-alias _git_gitlog_medium="vim -R -c \"set noswf ft=gitlog_medium fdl=99\" -"
-alias _git_gitlog_oneline="vim -R -c \"set noswf ft=gitlog_oneline fdl=99\" -"
-alias _git_gitlog_brief="vim -R -c \"set noswf ft=gitlog_brief fdl=99\" -"
-
-_git_log_medium_format='Commit: %H%d%nAuthor: %an <%ae>%nDate: %ai (%ar)%n%+B'
+_git_log_medium_format='%H%d%n%cr | %ar <%an %ae>%n%s%n%+b'
 _git_log_oneline_format='%h %s%d%n'
-_git_log_brief_format='%h %s%d%n%cr | %ar %an <%ae>%n'
+_git_log_brief_format='%h %s%d%n%cr | %ar <%an %ae>%n'
 
-alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}" | _git_gitlog_medium'
-alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}" | _git_gitlog_medium'
-alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}" | _git_gitlog_medium'
-alias glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}" | _git_gitlog_oneline'
-alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"| _git_gitlog_oneline'
-alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}" | _git_gitlog_brief'
+alias gl='git log --topo-order --tags --all --no-color --pretty=format:"${_git_log_medium_format}"'
+alias gls='git log --topo-order --tags --all --no-color --stat --pretty=format:"${_git_log_medium_format}"'
+alias gld='git log --topo-order --tags --all --no-color --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
+alias glo='git log --topo-order --tags --all --no-color --pretty=format:"${_git_log_oneline_format}"'
+alias glg='git log --topo-order --tags --all --no-color --graph --pretty=format:"${_git_log_oneline_format}"'
+alias glb='git log --topo-order --tags --all --no-color --pretty=format:"${_git_log_brief_format}"'
 alias glc='git shortlog --summary --numbered'
 
 # Merge (m)
@@ -181,3 +178,4 @@ alias gwc='git clean -n'
 alias gwC='git clean -f'
 alias gwx='git rm -r'
 alias gwX='git rm -rf'
+alias gwm='git mv'
