@@ -36,8 +36,8 @@ zstyle ':prezto:load' pmodule \
 	'archive' \
 	'rsync' \
 	'screen' \
-	'history-substring-search' \
 	'syntax-highlighting' \
+	'history-substring-search' \
 	'prompt'
 
 #
