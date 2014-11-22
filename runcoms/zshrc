@@ -13,8 +13,10 @@ fi
 # Customize to your needs...
 KEYTIMEOUT=1
 
-alias sshon='ssh-add'
-alias sshoff='ssh-add -D'
+export GPG_TTY=$(tty)
+
+alias gpgon='gpgconf --launch gpg-agent'
+alias gpgoff='gpgconf --kill gpg-agent'
 
 alias wifion='sudo systemctl start wifi && nohup nm-applet > /dev/null 2>&1 &'
 alias wifioff='sudo systemctl stop wifi'

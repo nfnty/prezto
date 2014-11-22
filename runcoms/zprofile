@@ -22,6 +22,7 @@ export IPYTHONDIR="$HOME/.local/share/ipython"
 export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
 
 export GNUPGHOME="$HOME/.config/gnupg"
+export SSH_AUTH_SOCK="$GNUPGHOME/S.gpg-agent.ssh"
 export SYSSCREENRC="$HOME/.config/screen.conf"
 #
 # Browser
