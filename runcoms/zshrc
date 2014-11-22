@@ -16,7 +16,7 @@ KEYTIMEOUT=1
 alias sshon='ssh-add'
 alias sshoff='ssh-add -D'
 
-alias wifion='sudo systemctl start wifi'
+alias wifion='sudo systemctl start wifi && nohup nm-applet > /dev/null 2>&1 &'
 alias wifioff='sudo systemctl stop wifi'
 
 ssh_array=( 'rservy' 'dservy' 'rmail' 'rauto' )

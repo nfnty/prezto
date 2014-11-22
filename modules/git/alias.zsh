@@ -9,6 +9,9 @@
 # Settings
 #
 #
+_git_log_medium_format='%H%d%n%cr | %ar <%an %ae>%n%s%n%+b'
+_git_log_oneline_format='%h %s%d%n'
+_git_log_brief_format='%h %s%d%n%cr | %ar <%an %ae>%n'
 
 # Status
 zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_submodules' \
@@ -45,7 +48,7 @@ alias gcp='git cherry-pick --ff'
 alias gcP='git cherry-pick --no-commit'
 alias gcr='git revert'
 alias gcR='git reset "HEAD^"'
-alias gcs='git show'
+alias gcs='git show --no-color --pretty=format:"${_git_log_medium_format}"'
 alias gcl='git-commit-lost'
 
 # Conflict (C)
@@ -87,23 +90,18 @@ alias giA='git add --patch'
 alias giu='git add --update'
 alias gid='git difftool --cached'
 alias giD='git diff --no-ext-diff --cached'
-alias giDw='git diff --no-ext-diff --cached --word-diff'
 alias gir='git reset'
 alias giR='git reset --patch'
 alias gix='git rm -r --cached'
 alias giX='git rm -rf --cached'
 
 # Log (l)
-_git_log_medium_format='%H%d%n%cr | %ar <%an %ae>%n%s%n%+b'
-_git_log_oneline_format='%h %s%d%n'
-_git_log_brief_format='%h %s%d%n%cr | %ar <%an %ae>%n'
-
-alias gl='git log --topo-order --tags --all --no-color --pretty=format:"${_git_log_medium_format}"'
-alias gls='git log --topo-order --tags --all --no-color --stat --pretty=format:"${_git_log_medium_format}"'
-alias gld='git log --topo-order --tags --all --no-color --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
-alias glo='git log --topo-order --tags --all --no-color --pretty=format:"${_git_log_oneline_format}"'
-alias glg='git log --topo-order --tags --all --no-color --graph --pretty=format:"${_git_log_oneline_format}"'
-alias glb='git log --topo-order --tags --all --no-color --pretty=format:"${_git_log_brief_format}"'
+alias gl='git log --topo-order --tags --no-color --pretty=format:"${_git_log_medium_format}"'
+alias gls='git log --topo-order --tags --no-color --stat --pretty=format:"${_git_log_medium_format}"'
+alias gld='git log --topo-order --tags --no-color --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
+alias glo='git log --topo-order --tags --no-color --pretty=format:"${_git_log_oneline_format}"'
+alias glg='git log --topo-order --tags --no-color --graph --pretty=format:"${_git_log_oneline_format}"'
+alias glb='git log --topo-order --tags --no-color --pretty=format:"${_git_log_brief_format}"'
 alias glc='git shortlog --summary --numbered'
 
 # Merge (m)
@@ -171,7 +169,6 @@ alias gws='git status --ignore-submodules=${_git_status_ignore_submodules} --sho
 alias gwS='git status --ignore-submodules=${_git_status_ignore_submodules}'
 alias gwd='git difftool'
 alias gwD='git diff --no-ext-diff'
-alias gwDw='git diff --no-ext-diff --word-diff'
 alias gwr='git reset --soft'
 alias gwR='git reset --hard'
 alias gwc='git clean -n'

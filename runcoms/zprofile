@@ -5,7 +5,7 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export LOC='/store/loc/nfnty/'
+export LOC='/store/loc/nfnty'
 
 export QT_STYLE_OVERRIDE=gtk
 export RANGER_LOAD_DEFAULT_RC=FALSE

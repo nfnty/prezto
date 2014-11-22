@@ -26,9 +26,9 @@ unsetopt CLOBBER            # Do not overwrite existing files with > and >>.
 #
 
 alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+for index ({1..19}) alias "$index"="cd +${index}"; unset index
 
-DIRSTACKSIZE=9
+DIRSTACKSIZE=20
 DIRSTACKFILE="${ZDOTDIR:-$HOME}/.zdirs"
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
 	dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
