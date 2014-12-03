@@ -10,20 +10,19 @@ export DATADIR='/store/loc/nfnty'
 export QT_STYLE_OVERRIDE=gtk
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
-export GOPATH="$DATADIR/software/learn/go"
-export ASPROOT="$HOME/.local/share/asp"
+export ASPROOT="$XDG_DATA_HOME/asp"
+export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
+export IPYTHONDIR="$XDG_DATA_HOME/ipython"
+export PYLINTHOME="$XDG_DATA_HOME/pylint"
 
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
-export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
 export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
-
-export PYLINTHOME="$HOME/.local/share/pylint"
-export IPYTHONDIR="$HOME/.local/share/ipython"
-export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
-
-export GNUPGHOME="$HOME/.config/gnupg"
+export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
+export SYSSCREENRC="$XDG_CONFIG_HOME/screen.conf"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export SSH_AUTH_SOCK="$GNUPGHOME/S.gpg-agent.ssh"
-export SYSSCREENRC="$HOME/.config/screen.conf"
+
+export GOPATH="$DATADIR/software/learn/go"
 #
 # Browser
 #
