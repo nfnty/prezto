@@ -5,12 +5,12 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export LOC='/store/loc/nfnty'
+export DATADIR='/store/loc/nfnty'
 
 export QT_STYLE_OVERRIDE=gtk
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
-export GOPATH="$LOC/software/learn/go"
+export GOPATH="$DATADIR/software/learn/go"
 export ASPROOT="$HOME/.local/share/asp"
 
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
