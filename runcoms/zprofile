@@ -5,7 +5,9 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export SYSSCREENRC="$HOME/.config/screen.conf"
+export SYSSCREENRC="$XDG_CONFIG_HOME/screen.conf"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export SSH_AUTH_SOCK="$GNUPGHOME/S.gpg-agent.ssh"
 #
 # Browser
 #
