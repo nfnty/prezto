@@ -15,7 +15,7 @@ KEYTIMEOUT=1
 
 export GPG_TTY=$(tty)
 
-alias gpgon='gpg-agent --daemon'
+alias gpgon='gpg-agent --daemon >/dev/null'
 alias gpgoff='pkill -U "$USER" -x gpg-agent'
 
 alias wifion='sudo systemctl start wifi && nohup nm-applet > /dev/null 2>&1 &'
