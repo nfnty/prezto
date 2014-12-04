@@ -29,7 +29,7 @@ for remote in $ssh_array; do
 done
 unset ssh_array
 
-alias cdl='cd /store/loc/nfnty/'
+alias cdd='cd $DATADIR'
 alias update='sudo pacman -Syu; echo; cower -u'
 alias ydl='youtube-dl -f 137+140'
 alias pager="$PAGER"
