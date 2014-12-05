@@ -33,7 +33,8 @@ export GOPATH="$DATADIR/software/learn/go"
 
 export EDITOR='vim'
 export VISUAL='vim'
-export PAGER="/bin/sh -c \"sed -r 's/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | col -x -b | vim -R -c 'set noswf ft=man nomod fdl=99' -\""
+export PAGER='vimpager'
+export MANPAGER='manpager'
 
 #
 # Language

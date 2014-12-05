@@ -32,8 +32,6 @@ unset ssh_array
 alias cdd='cd $DATADIR'
 alias update='sudo pacman -Syu; echo; cower -u'
 alias ydl='youtube-dl -f 137+140'
-alias pager="$PAGER"
-alias dpager="vim -R -c 'set noswf ft=diff nomod fdl=99' -"
 
 bindkey -M vicmd "x" undo
 bindkey -M vicmd "X" redo
