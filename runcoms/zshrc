@@ -21,7 +21,7 @@ alias gpgoff='pkill -U "$USER" -x gpg-agent'
 alias wifion='sudo systemctl start wifi && nohup nm-applet > /dev/null 2>&1 &'
 alias wifioff='sudo systemctl stop wifi'
 
-ssh_array=( 'rservy' 'dservy' 'rmail' 'rauto' 'nservy')
+ssh_array=('rservy' 'dservy' 'rmail' 'rauto' 'nservy')
 for remote in $ssh_array; do
 	alias "$remote"="ssh $remote"
 	alias "m$remote"="sshfs ${remote}:/ /remote/$remote"
