@@ -5,9 +5,12 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+export LESSKEY="$XDG_CONFIG_HOME/lesskey/output"
+export LESSHISTFILE='/dev/null'
 export SYSSCREENRC="$XDG_CONFIG_HOME/screen.conf"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export SSH_AUTH_SOCK="$GNUPGHOME/S.gpg-agent.ssh"
+
 #
 # Browser
 #
