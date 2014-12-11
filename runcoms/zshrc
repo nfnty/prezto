@@ -30,7 +30,7 @@ done
 unset ssh_array
 
 alias cdd='cd $DATADIR'
-alias update='sudo pacman -Syu; echo; cower -u'
+alias update='sudo pacman -Syu; cat <(echo "\033[91m") <(cower -u -q) <(echo -n "\033[0m")'
 alias ydl='youtube-dl -f 137+140'
 
 bindkey -M vicmd "x" undo
