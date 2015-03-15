@@ -5,6 +5,7 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+pkill -U "$USER" -x gpg-agent
 # Print the message.
 # cat <<-EOF
 

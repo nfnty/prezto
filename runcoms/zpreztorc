@@ -14,6 +14,8 @@
 
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:module:utility:diff' color 'no'
+# zstyle ':prezto:module:utility:make' color 'no'
 
 # Set the Zsh modules to load (man zshmodules).
 # zstyle ':prezto:load' zmodule 'attr' 'stat'
@@ -34,6 +36,7 @@ zstyle ':prezto:load' pmodule \
 	'completion' \
 	'dpkg' \
 	'archive' \
+	'git' \
 	'rsync' \
 	'screen' \
 	'syntax-highlighting' \
@@ -105,7 +108,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
-# zstyle ':prezto:module:screen:auto-start' local 'yes'
+zstyle ':prezto:module:screen:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:screen:auto-start' remote 'yes'

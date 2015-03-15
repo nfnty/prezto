@@ -13,6 +13,11 @@ fi
 # Customize to your needs...
 KEYTIMEOUT=1
 
+export GPG_TTY=$(tty)
+
+alias gpgon='gpg-agent --daemon >/dev/null'
+alias gpgoff='pkill -U "$USER" -x gpg-agent'
+
 bindkey -M vicmd "x" undo
 bindkey -M vicmd "X" redo
 bindkey -M vicmd "l" vi-delete-char

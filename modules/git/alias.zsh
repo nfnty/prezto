@@ -9,14 +9,9 @@
 # Settings
 #
 #
-
-# Log
-zstyle -s ':prezto:module:git:log:medium' format '_git_log_medium_format' \
-  || _git_log_medium_format='%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'
-zstyle -s ':prezto:module:git:log:oneline' format '_git_log_oneline_format' \
-  || _git_log_oneline_format='%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n'
-zstyle -s ':prezto:module:git:log:brief' format '_git_log_brief_format' \
-  || _git_log_brief_format='%C(green)%h%C(reset) %s%n%C(blue)(%ar by %an)%C(red)%d%C(reset)%n'
+_git_log_medium_format='%H%d%n%cr | %ar <%an %ae>%n%s%n%+b'
+_git_log_oneline_format='%h %s%d%n'
+_git_log_brief_format='%h %s%d%n%cr | %ar <%an %ae>%n'
 
 # Status
 zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_submodules' \
@@ -32,12 +27,11 @@ alias g='git'
 # Branch (b)
 alias gb='git branch'
 alias gbc='git checkout -b'
-alias gbl='git branch -v'
-alias gbL='git branch -av'
-alias gbx='git branch -d'
+alias gbl='git branch --verbose'
+alias gbL='git branch --verbose -a'
+alias gbx='git branch --delete'
 alias gbX='git branch -D'
-alias gbm='git branch -m'
-alias gbM='git branch -M'
+alias gbm='git branch --move'
 alias gbs='git show-branch'
 alias gbS='git show-branch -a'
 
@@ -53,7 +47,7 @@ alias gcp='git cherry-pick --ff'
 alias gcP='git cherry-pick --no-commit'
 alias gcr='git revert'
 alias gcR='git reset "HEAD^"'
-alias gcs='git show'
+alias gcs='git show --no-color --pretty=format:"${_git_log_medium_format}"'
 alias gcl='git-commit-lost'
 
 # Conflict (C)
@@ -92,20 +86,22 @@ alias ggw='git grep --word-regexp'
 alias gia='git add'
 alias giA='git add --patch'
 alias giu='git add --update'
-alias gid='git diff --no-ext-diff --cached'
-alias giD='git diff --no-ext-diff --cached --word-diff'
+alias gid='git difftool --cached'
+alias giD='git diff --no-ext-diff --cached'
 alias gir='git reset'
 alias giR='git reset --patch'
 alias gix='git rm -r --cached'
-alias giX='git rm -rf --cached'
+alias giX='git rm -r --force --cached'
 
 # Log (l)
-alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
-alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
-alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
-alias glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"'
-alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"'
-alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
+alias gl='git log --topo-order --no-color --pretty=format:"${_git_log_medium_format}"'
+alias gls='git log --topo-order --no-color --stat --pretty=format:"${_git_log_medium_format}"'
+alias gld='git log --topo-order --no-color --stat --patch --pretty=format:"${_git_log_medium_format}"'
+alias glD='git log --topo-order --no-color --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
+alias glo='git log --topo-order --no-color --pretty=format:"${_git_log_oneline_format}"'
+alias glg='git log --topo-order --no-color --graph --pretty=format:"${_git_log_oneline_format}"'
+alias glb='git log --topo-order --no-color --pretty=format:"${_git_log_brief_format}"'
+alias glr='git reflog --no-color'
 alias glc='git shortlog --summary --numbered'
 
 # Merge (m)
@@ -171,11 +167,13 @@ alias gSx='git-submodule-remove'
 # Working Copy (w)
 alias gws='git status --ignore-submodules=${_git_status_ignore_submodules} --short'
 alias gwS='git status --ignore-submodules=${_git_status_ignore_submodules}'
-alias gwd='git diff --no-ext-diff'
-alias gwD='git diff --no-ext-diff --word-diff'
+alias gwd='git difftool'
+alias gwD='git diff --no-ext-diff'
 alias gwr='git reset --soft'
 alias gwR='git reset --hard'
-alias gwc='git clean -n'
-alias gwC='git clean -f'
+alias gwc='git clean --dry-run'
+alias gwC='git clean --force'
+alias gwCd='git clean --force -d'
 alias gwx='git rm -r'
-alias gwX='git rm -rf'
+alias gwX='git rm -r --force'
+alias gwm='git mv'
