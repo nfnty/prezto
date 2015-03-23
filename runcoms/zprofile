@@ -25,6 +25,9 @@ export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export SSH_AUTH_SOCK="$GNUPGHOME/S.gpg-agent.ssh"
 
 export GOPATH="$DATADIR/software/gopath"
+
+export ESCDELAY=0
+
 #
 # Browser
 #
