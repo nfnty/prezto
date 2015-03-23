@@ -11,6 +11,8 @@ export SYSSCREENRC="$XDG_CONFIG_HOME/screen.conf"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export SSH_AUTH_SOCK="$GNUPGHOME/S.gpg-agent.ssh"
 
+export ESCDELAY=0
+
 #
 # Browser
 #
