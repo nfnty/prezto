@@ -7,26 +7,26 @@
 
 export DATADIR='/data'
 
-export QT_STYLE_OVERRIDE=gtk
-export RANGER_LOAD_DEFAULT_RC=FALSE
-export XAUTHORITY="$XDG_CACHE_HOME/xorg/Xauthority"
-export PULSE_COOKIE="$XDG_CACHE_HOME/pulseaudio/cookie"
+export QT_STYLE_OVERRIDE='gtk'
+export RANGER_LOAD_DEFAULT_RC='FALSE'
+export XAUTHORITY="${XDG_CACHE_HOME}/xorg/Xauthority"
+export PULSE_COOKIE="${XDG_CACHE_HOME}/pulseaudio/cookie"
+export VIMPERATOR_RUNTIME="${XDG_CACHE_HOME}/vimperator"
 
-export ASPROOT="$XDG_DATA_HOME/asp"
-export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
-export IPYTHONDIR="$XDG_DATA_HOME/ipython"
-export PYLINTHOME="$XDG_DATA_HOME/pylint"
+export ASPROOT="${XDG_DATA_HOME}/asp"
+export GIMP2_DIRECTORY="${XDG_DATA_HOME}/gimp"
+export IPYTHONDIR="${XDG_DATA_HOME}/ipython"
+export PYLINTHOME="${XDG_DATA_HOME}/pylint"
 
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
-export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
-export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
-export SYSSCREENRC="$XDG_CONFIG_HOME/screen.conf"
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export SSH_AUTH_SOCK="$GNUPGHOME/S.gpg-agent.ssh"
+export VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source ${MYVIMRC}'
+export VIMPERATOR_INIT=":source ${XDG_CONFIG_HOME}/vimperator/init"
+export SYSSCREENRC="${XDG_CONFIG_HOME}/screen.conf"
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+export SSH_AUTH_SOCK="${GNUPGHOME}/S.gpg-agent.ssh"
 
-export GOPATH="$DATADIR/software/gopath"
+export GOPATH="${DATADIR}/software/gopath"
 
-export ESCDELAY=0
+export ESCDELAY='0'
 
 #
 # Browser
@@ -45,7 +45,7 @@ export MANPAGER='manpager'
 # Language
 #
 
-if [[ -z "$LANG" ]]; then
+if [[ -z "${LANG}" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
@@ -55,11 +55,6 @@ fi
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
-
-# Set the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
 
 #
 # Less
@@ -72,9 +67,9 @@ typeset -gU cdpath fpath mailpath path
 # Temporary Files
 #
 
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$LOGNAME"
-  mkdir -p -m 700 "$TMPDIR"
+if [[ ! -d "${TMPDIR}" ]]; then
+    export TMPDIR="/tmp/${LOGNAME}"
+    mkdir -p -m 700 "${TMPDIR}"
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
