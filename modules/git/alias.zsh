@@ -9,9 +9,10 @@
 # Settings
 #
 #
-_git_log_medium_format='%H%d%n%cr | %ar <%an %ae>%n%s%n%+b'
+_git_log_long_format='%H%d%n%ci <%an %ae> %ai <%cn %ce>%n%s%n%+b'
+_git_log_medium_format='%H%d%n%cr <%an %ae> %ar <%cn %ce>%n%s%n%+b'
 _git_log_oneline_format='%h %s%d%n'
-_git_log_brief_format='%h %s%d%n%cr | %ar <%an %ae>%n'
+_git_log_brief_format='%h %s%d%n%cr <%an %ae> %ar <%cn %ce>%n'
 
 # Status
 zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_submodules' \
@@ -96,14 +97,19 @@ alias giX='git rm -r --force --cached'
 
 # Log (l)
 alias gl='git log --topo-order --no-color --pretty=format:"${_git_log_medium_format}"'
+alias gll='git log --topo-order --no-color --pretty=format:"${_git_log_long_format}"'
 alias gls='git log --topo-order --no-color --stat --pretty=format:"${_git_log_medium_format}"'
+alias glsl='git log --topo-order --no-color --stat --pretty=format:"${_git_log_long_format}"'
 alias gld='git log --topo-order --no-color --stat --patch --pretty=format:"${_git_log_medium_format}"'
+alias gldl='git log --topo-order --no-color --stat --patch --pretty=format:"${_git_log_long_format}"'
 alias glD='git log --topo-order --no-color --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
+alias glDl='git log --topo-order --no-color --stat --patch --full-diff --pretty=format:"${_git_log_long_format}"'
 alias glo='git log --topo-order --no-color --pretty=format:"${_git_log_oneline_format}"'
 alias glg='git log --topo-order --no-color --graph --pretty=format:"${_git_log_oneline_format}"'
 alias glb='git log --topo-order --no-color --pretty=format:"${_git_log_brief_format}"'
 alias glr='git reflog --no-color'
 alias glc='git shortlog --summary --numbered'
+alias glcl='git shortlog --numbered'
 
 # Merge (m)
 alias gm='git merge'
