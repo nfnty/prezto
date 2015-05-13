@@ -24,7 +24,8 @@ export SYSSCREENRC="${XDG_CONFIG_HOME}/screen.conf"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export SSH_AUTH_SOCK="${GNUPGHOME}/S.gpg-agent.ssh"
 
-export GOPATH="${DATADIR}/software/gopath"
+export GOPATH="${DATADIR}/storage/gopath"
+export CARGO_HOME="${DATADIR}/storage/cargo_home"
 
 export ESCDELAY='0'
 
