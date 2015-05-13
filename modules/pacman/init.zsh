@@ -54,7 +54,7 @@ alias pacq="${_pacman_frontend} --sync --info"
 alias pacQ="${_pacman_frontend} --query --info"
 
 # List files owned by package
-alias pacl="${_pacman_frontend} --query --list"
+alias pacl="${_pacman_frontend} --query --list --quiet"
 
 # Searches for packages in the repositories.
 alias pacs="${_pacman_frontend} --sync --search"
