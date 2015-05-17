@@ -17,8 +17,9 @@ trap  'rm -rf "$tmp"' EXIT
 
 pacman --quiet --query --list | sort --unique > "$db"
 
-find /bin /etc /lib /sbin /usr \
+find /etc /usr /var \
   ! -name lost+found \
+  -path /var/lib/docker -prune -o \
     \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
 
 comm -23 "$fs" "$db"
