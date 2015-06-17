@@ -29,6 +29,7 @@ fi
 alias rsync-copy="${_rsync_cmd}"
 alias rsync-move="${_rsync_cmd} --remove-source-files"
 alias rsync-update="${_rsync_cmd} --update"
+alias rsync-delete="${_rsync_cmd} --delete"
 alias rsync-synchronize="${_rsync_cmd} --update --delete"
 
 unset _rsync_cmd
