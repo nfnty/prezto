@@ -44,7 +44,7 @@ zstyle ':prezto:load' pmodule \
     'archive' \
     'git' \
     'rsync' \
-    'screen' \
+    'tmux' \
     'syntax-highlighting' \
     'history-substring-search' \
     'prompt'
