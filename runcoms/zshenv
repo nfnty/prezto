@@ -8,14 +8,14 @@
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ -z "$XDG_CONFIG_HOME" ]]
 then
-	export XDG_DATA_HOME="$HOME/.data"
-	export XDG_CONFIG_HOME="$HOME/.config"
-	export XDG_CACHE_HOME="$HOME/.cache"
+    export XDG_DATA_HOME="$HOME/.data"
+    export XDG_CONFIG_HOME="$HOME/.config"
+    export XDG_CACHE_HOME="$HOME/.cache"
 fi
 
 if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
 then
-	export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+    export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 fi
 
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then

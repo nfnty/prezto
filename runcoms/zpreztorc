@@ -32,22 +32,22 @@ zstyle ':prezto:module:utility:diff' color 'no'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-	'environment' \
-	'terminal' \
-	'editor' \
-	'history' \
-	'directory' \
-	'spectrum' \
-	'utility' \
-	'completion' \
-	'pacman' \
-	'archive' \
-	'git' \
-	'rsync' \
-	'screen' \
-	'syntax-highlighting' \
-	'history-substring-search' \
-	'prompt'
+    'environment' \
+    'terminal' \
+    'editor' \
+    'history' \
+    'directory' \
+    'spectrum' \
+    'utility' \
+    'completion' \
+    'pacman' \
+    'archive' \
+    'git' \
+    'rsync' \
+    'screen' \
+    'syntax-highlighting' \
+    'history-substring-search' \
+    'prompt'
 
 #
 # Autosuggestions
@@ -72,7 +72,7 @@ zstyle ':prezto:load' pmodule \
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
-zstyle ':prezto:module:editor' dot-expansion 'yes'
+# zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Allow the zsh prompt context to be shown.
 #zstyle ':prezto:module:editor' ps-context 'yes'
@@ -177,11 +177,11 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
 zstyle ':prezto:module:syntax-highlighting' highlighters \
-	'main' \
-	'brackets' \
-	'pattern' \
-	'root'
-	# 'cursor' \
+    'main' \
+    'brackets' \
+    'pattern' \
+    # 'root'
+    # 'cursor' \
 #
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
