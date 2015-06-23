@@ -17,6 +17,7 @@ export ASPROOT="${XDG_DATA_HOME}/asp"
 export GIMP2_DIRECTORY="${XDG_DATA_HOME}/gimp"
 export IPYTHONDIR="${XDG_DATA_HOME}/ipython"
 export PYLINTHOME="${XDG_DATA_HOME}/pylint"
+export WINEPREFIX="${XDG_DATA_HOME}/wine"
 
 export VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source ${MYVIMRC}'
 export VIMPERATOR_INIT=":source ${XDG_CONFIG_HOME}/vimperator/init"
