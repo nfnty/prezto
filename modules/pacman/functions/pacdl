@@ -1,0 +1,4 @@
+local package="${1}"
+local url
+url="$( pacman --sync --nodeps --nodeps --print "${package}" )" || return "${?}"
+curl --remote-name "${url}"
