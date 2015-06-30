@@ -27,23 +27,26 @@ if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" ]] && ( \
   ( [[ -n "$SSH_TTY" ]] && zstyle -t ':prezto:module:tmux:auto-start' remote ) ||
   ( [[ -z "$SSH_TTY" ]] && zstyle -t ':prezto:module:tmux:auto-start' local ) \
 ); then
-  tmux start-server
+  tmux -f "${XDG_CONFIG_HOME}/tmux/config" start-server
 
   # Create a 'prezto' session if no session has been defined in tmux.conf.
-  if ! tmux has-session 2> /dev/null; then
-    tmux_session='prezto'
-    tmux \
-      new-session -d -s "$tmux_session" \; \
-      set-option -t "$tmux_session" destroy-unattached off &> /dev/null
+  if ! tmux has-session; then
+    tmux -f "${XDG_CONFIG_HOME}/tmux/config" \
+      new-session -d -s prezto \
+      ';' set-option -t prezto destroy-unattached off
   fi
 
   # Attach to the 'prezto' session or to the last session used.
-  exec tmux $_tmux_iterm_integration attach-session
+  exec tmux -f "${XDG_CONFIG_HOME}/tmux/config" \
+    $_tmux_iterm_integration \
+    new-session -t prezto \
+    ';' set-option destroy-unattached on
 fi
 
 #
 # Aliases
 #
 
+alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/config"
 alias tmuxa="tmux $_tmux_iterm_integration new-session -A"
 alias tmuxl='tmux list-sessions'

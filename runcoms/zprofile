@@ -20,7 +20,6 @@ export PYLINTHOME="${XDG_DATA_HOME}/pylint"
 
 export VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source ${MYVIMRC}'
 export VIMPERATOR_INIT=":source ${XDG_CONFIG_HOME}/vimperator/init"
-export SYSSCREENRC="${XDG_CONFIG_HOME}/screen.conf"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export SSH_AUTH_SOCK="${GNUPGHOME}/S.gpg-agent.ssh"
 
