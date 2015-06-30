@@ -30,7 +30,7 @@ if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" ]] && ( \
   tmux -f "${XDG_CONFIG_HOME}/tmux/config" start-server
 
   # Create a 'prezto' session if no session has been defined in tmux.conf.
-  if ! tmux has-session; then
+  if ! tmux has-session -t prezto &> /dev/null; then
     tmux -f "${XDG_CONFIG_HOME}/tmux/config" \
       new-session -d -s prezto \
       ';' set-option -t prezto destroy-unattached off
