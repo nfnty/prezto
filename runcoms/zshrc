@@ -10,18 +10,17 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-KEYTIMEOUT=1
+stty -ixon
 
-export GPG_TTY=$(tty)
+# Customize to your needs...
+KEYTIMEOUT='1'
+
+export GPG_TTY="$( tty )"
 
 alias gpgon='gpg-agent --daemon >/dev/null'
-alias gpgoff='pkill -U "$USER" -x gpg-agent'
+alias gpgoff='pkill --uid "$USER" --exact gpg-agent'
 
-alias wifion='sudo systemctl start wifi && nohup nm-applet > /dev/null 2>&1 &'
-alias wifioff='sudo systemctl stop wifi'
-
-ssh_array=('rservy' 'dservy' 'rmail' 'rauto' 'nservy')
+ssh_array=('rservy' 'nservy')
 for remote in $ssh_array; do
     alias "$remote"="ssh $remote"
     alias "m$remote"="sshfs ${remote}:/ /remote/$remote"
@@ -29,57 +28,159 @@ for remote in $ssh_array; do
 done
 unset ssh_array
 
-alias cdd='cd $DATADIR'
-alias update='sudo pacman -Syu; cat <(echo "\033[91m") <(cower -u -q) <(echo -n "\033[0m")'
-alias ydl='youtube-dl -f 137+140'
+bindkey -rpM viins ''
+bindkey -rpM vicmd ''
 
-bindkey -M vicmd "x" undo
-bindkey -M vicmd "X" redo
-bindkey -M vicmd "l" vi-delete-char
-bindkey -M vicmd "e" history-substring-search-down
-bindkey -M vicmd "u" history-substring-search-up
-bindkey -M vicmd "h" vi-backward-char
-bindkey -M vicmd "t" vi-forward-char
-bindkey -M vicmd "=" vi-match-bracket
-bindkey -M vicmd "j" vi-join
-bindkey -M vicmd "&" list-choices
-bindkey -M vicmd "E" down-history
-bindkey -M vicmd "U" up-history
-bindkey -M vicmd "/" history-incremental-pattern-search-backward
+bindkey -RM viins '0-9' self-insert
+bindkey -RM viins 'a-z' self-insert
+bindkey -RM viins 'A-Z' self-insert
+bindkey -RM viins '!'-'~' self-insert
+bindkey -RM viins '^A'-'^Z' self-insert
+bindkey -RM viins '^!'-'^~' self-insert
+# bindkey -M viins '^D' list-choices
+# bindkey -RM viins '^E'-'^F' self-insert
+# bindkey -M viins '^G' list-expand
+# bindkey -M viins '^H' vi-backward-delete-char
+bindkey -M viins '^I' expand-or-complete-with-indicator
+# bindkey -M viins '^J' accept-line
+# bindkey -M viins '^K' self-insert
+bindkey -M viins '^L' clear-screen
+bindkey -M viins '^M' accept-line
+# bindkey -RM viins '^N'-'^P' self-insert
+# bindkey -M viins '^Q' push-line-or-edit
+bindkey -M viins '^R' redisplay
+# bindkey -RM viins '^S'-'^T' self-insert
+bindkey -M viins '^U' vi-kill-line
+# bindkey -M viins '^V' vi-quoted-insert
+bindkey -M viins '^W' vi-backward-kill-word
+# bindkey -M viins '^X^R' _read_comp
+# bindkey -M viins '^X^S' prepend-sudo
+# bindkey -M viins '^X?' _complete_debug
+# bindkey -M viins '^XC' _correct_filename
+# bindkey -M viins '^Xa' _expand_alias
+# bindkey -M viins '^Xc' _correct_word
+# bindkey -M viins '^Xd' _list_expansions
+# bindkey -M viins '^Xe' _expand_word
+# bindkey -M viins '^Xh' _complete_help
+# bindkey -M viins '^Xm' _most_recent_file
+# bindkey -M viins '^Xn' _next_tags
+# bindkey -M viins '^Xt' _complete_tag
+# bindkey -M viins '^X~' _bash_list-choices
+# bindkey -RM viins '^Y'-'^Z' self-insert
+bindkey -M viins '^[' vi-cmd-mode
+# bindkey -M viins '^[,' _history-complete-newer
+# bindkey -M viins '^[/' _history-complete-older
+# bindkey -M viins '^[E' expand-cmd-path
+# bindkey -M viins '^[M' copy-prev-shell-word
+bindkey -M viins '^[OA' up-line-or-history
+bindkey -M viins '^[OB' down-line-or-history
+bindkey -M viins '^[OC' vi-forward-char
+bindkey -M viins '^[OD' vi-backward-char
+# bindkey -M viins '^[Q' push-line-or-edit
+# bindkey -M viins '^[[2~' overwrite-mode
+# bindkey -M viins '^[[3~' delete-char
+# bindkey -M viins '^[[7~' beginning-of-line
+# bindkey -M viins '^[[8~' end-of-line
+bindkey -M viins '^[[A' history-substring-search-up
+bindkey -M viins '^[[B' history-substring-search-down
+bindkey -M viins '^[[C' forward-char
+bindkey -M viins '^[[D' backward-char
+bindkey -M viins '^[[Z' reverse-menu-complete
+# bindkey -M viins '^[e' expand-cmd-path
+# bindkey -M viins '^[m' copy-prev-shell-word
+# bindkey -M viins '^[q' push-line-or-edit
+# bindkey -M viins '^[~' _bash_complete-word
+# bindkey -M viins '^\'-'^_' self-insert
+bindkey -M viins ' ' magic-space
+bindkey -M viins '^?' backward-delete-char
+# bindkey -M viins '\M-^@'-'\M-^?' self-insert
 
-bindkey -M vicmd -r "n"
-bindkey -M vicmd -r "m"
-bindkey -M vicmd -r "|"
-bindkey -M vicmd -r "R"
-bindkey -M vicmd -r "k"
-bindkey -M vicmd -r "T"
-bindkey -M vicmd -r "J"
-bindkey -M vicmd -r "G"
-bindkey -M vicmd -r "?"
-bindkey -M vicmd -r "+"
-bindkey -M vicmd -r "\-"
-bindkey -M vicmd -r "%"
-bindkey -M vicmd -r ":"
-bindkey -M vicmd -r " "
-bindkey -M vicmd -r "#"
-bindkey -M vicmd -r "^D"
-bindkey -M vicmd -r "^G"
-bindkey -M vicmd -r "^H"
-bindkey -M vicmd -r "^J"
-bindkey -M vicmd -r "^N"
-bindkey -M vicmd -r "^P"
-bindkey -M vicmd -r "^R"
-bindkey -M vicmd -r "^[OA"
-bindkey -M vicmd -r "^[OB"
-bindkey -M vicmd -r "^[OC"
-bindkey -M vicmd -r "^[OD"
-bindkey -M vicmd -r "^[[A"
-bindkey -M vicmd -r "^[[B"
-bindkey -M vicmd -r "^[[C"
-bindkey -M vicmd -r "^[[D"
-bindkey -M vicmd -r "\'"
-bindkey -M vicmd -r "\`"
-bindkey -M vicmd -r "\""
-bindkey -M vicmd -r "^?"
-
-stty -ixon
+# bindkey -M vicmd '^D' list-choices
+# bindkey -M vicmd '^G' list-expand
+# bindkey -M vicmd '^H' vi-backward-char
+# bindkey -M vicmd '^J' accept-line
+bindkey -M vicmd '^L' clear-screen
+bindkey -M vicmd '^M' accept-line
+# bindkey -M vicmd '^N' down-history
+# bindkey -M vicmd '^P' up-history
+bindkey -M vicmd 'X' redo
+bindkey -M vicmd '^[OA' up-line-or-history
+bindkey -M vicmd '^[OB' down-line-or-history
+bindkey -M vicmd '^[OC' vi-forward-char
+bindkey -M vicmd '^[OD' vi-backward-char
+bindkey -M vicmd '^[[A' up-line-or-history
+bindkey -M vicmd '^[[B' down-line-or-history
+bindkey -M vicmd '^[[C' vi-forward-char
+bindkey -M vicmd '^[[D' vi-backward-char
+# bindkey -M vicmd ' ' vi-forward-char
+bindkey -M vicmd '"' vi-set-buffer
+bindkey -M vicmd '#' pound-insert
+bindkey -M vicmd '$' vi-end-of-line
+bindkey -M vicmd '%' vi-match-bracket
+bindkey -M vicmd "'" vi-goto-mark-line
+# bindkey -M vicmd '+' vi-down-line-or-history
+bindkey -M vicmd ',' vi-rev-repeat-find
+# bindkey -M vicmd '\-' vi-up-line-or-history
+bindkey -M vicmd '.' vi-repeat-change
+bindkey -M vicmd '/' history-incremental-pattern-search-forward
+bindkey -M vicmd '0' vi-digit-or-beginning-of-line
+bindkey -RM vicmd '1'-'9' digit-argument
+bindkey -M vicmd ':' execute-named-cmd
+bindkey -M vicmd ';' vi-repeat-find
+bindkey -M vicmd '<' vi-unindent
+bindkey -M vicmd '=' list-choices
+bindkey -M vicmd '>' vi-indent
+bindkey -M vicmd '?' history-incremental-pattern-search-backward
+bindkey -M vicmd 'A' vi-add-eol
+bindkey -M vicmd 'B' vi-backward-blank-word
+bindkey -M vicmd 'C' vi-change-eol
+bindkey -M vicmd 'D' vi-kill-eol
+bindkey -M vicmd 'J' vi-forward-blank-word-end
+bindkey -M vicmd 'F' vi-find-prev-char
+bindkey -M vicmd 'G' vi-fetch-history
+bindkey -M vicmd 'I' vi-insert-bol
+bindkey -M vicmd '&' vi-join
+bindkey -M vicmd 'N' vi-rev-repeat-search
+bindkey -M vicmd 'O' vi-open-line-above
+bindkey -M vicmd 'P' vi-put-before
+bindkey -M vicmd 'R' vi-replace
+bindkey -M vicmd 'S' vi-change-whole-line
+# bindkey -M vicmd 'T' vi-find-prev-char-skip
+bindkey -M vicmd 'V' visual-line-mode
+bindkey -M vicmd 'W' vi-forward-blank-word
+bindkey -M vicmd 'l' vi-backward-delete-char
+# bindkey -M vicmd 'yy' vi-yank-whole-line
+bindkey -M vicmd '^' vi-first-non-blank
+# bindkey -M vicmd '`' vi-goto-mark
+bindkey -M vicmd 'a' vi-add-next
+bindkey -M vicmd 'b' vi-backward-word
+bindkey -M vicmd 'c' vi-change
+bindkey -M vicmd 'd' vi-delete
+bindkey -M vicmd 'j' vi-forward-word-end
+bindkey -M vicmd 'f' vi-find-next-char
+bindkey -M vicmd 'gJ' vi-backward-blank-word-end
+bindkey -M vicmd '^G' what-cursor-position
+bindkey -M vicmd 'gj' vi-backward-word-end
+bindkey -M vicmd 'gg' beginning-of-buffer-or-history
+# bindkey -M vicmd 'g~' vi-oper-swap-case
+# bindkey -M vicmd 'g~~' 'g~g~'
+bindkey -M vicmd 'h' vi-backward-char
+bindkey -M vicmd 'i' vi-insert
+bindkey -M vicmd 'e' history-substring-search-down
+bindkey -M vicmd 'u' history-substring-search-up
+bindkey -M vicmd 't' vi-forward-char
+bindkey -M vicmd 'm' vi-set-mark
+bindkey -M vicmd 'n' vi-repeat-search
+bindkey -M vicmd 'o' vi-open-line-below
+bindkey -M vicmd 'p' vi-put-after
+bindkey -M vicmd 'r' vi-replace-chars
+bindkey -M vicmd 's' vi-substitute
+bindkey -M vicmd 'T' vi-find-next-char-skip
+bindkey -M vicmd 'x' undo
+bindkey -M vicmd 'v' edit-command-line
+bindkey -M vicmd 'w' vi-forward-word
+bindkey -M vicmd 'l' vi-delete-char
+bindkey -M vicmd 'y' vi-yank
+# bindkey -M vicmd '|' vi-goto-column
+bindkey -M vicmd '~' vi-swap-case
+bindkey -M vicmd '^?' vi-backward-char
