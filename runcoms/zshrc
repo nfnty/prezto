@@ -30,6 +30,8 @@ unset ssh_array
 
 bindkey -rpM viins ''
 bindkey -rpM vicmd ''
+bindkey -rpM viopp ''
+bindkey -rpM visual ''
 
 bindkey -RM viins '0-9' self-insert
 bindkey -RM viins 'a-z' self-insert
@@ -125,3 +127,34 @@ bindkey -M vicmd 'l' vi-delete-char
 bindkey -M vicmd 'y' vi-yank
 bindkey -M vicmd 'Y' vi-yank-eol
 bindkey -M vicmd '~' vi-oper-swap-case
+
+bindkey -M viopp '^[' vi-cmd-mode
+bindkey -M viopp '^[OA' up-line
+bindkey -M viopp '^[OB' down-line
+bindkey -M viopp '^[[A' up-line
+bindkey -M viopp '^[[B' down-line
+bindkey -M viopp 'aW' select-a-blank-word
+bindkey -M viopp 'aa' select-a-shell-word
+bindkey -M viopp 'aw' select-a-word
+bindkey -M viopp 'iW' select-in-blank-word
+bindkey -M viopp 'ia' select-in-shell-word
+bindkey -M viopp 'iw' select-in-word
+bindkey -M viopp 'e' down-line
+bindkey -M viopp 'u' up-line
+
+bindkey -M visual '^[OA' up-line
+bindkey -M visual '^[OB' down-line
+bindkey -M visual '^[[A' up-line
+bindkey -M visual '^[[B' down-line
+bindkey -M visual 'aW' select-a-blank-word
+bindkey -M visual 'aa' select-a-shell-word
+bindkey -M visual 'aw' select-a-word
+bindkey -M visual 'iW' select-in-blank-word
+bindkey -M visual 'ia' select-in-shell-word
+bindkey -M visual 'iw' select-in-word
+bindkey -M visual 'e' down-line
+bindkey -M visual 'u' up-line
+bindkey -M visual 'o' exchange-point-and-mark
+bindkey -M visual 'p' put-replace-selection
+bindkey -M visual 'l' vi-delete
+bindkey -M visual '~' vi-oper-swap-case
