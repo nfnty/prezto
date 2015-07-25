@@ -6,22 +6,23 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# function pacman-list-disowned {
+local tmp="${TMPDIR:-/tmp}/pacman-disowned-${UID}-$$"
+local db="${tmp}/db"
+local fs="${tmp}/fs"
 
-local tmp="${TMPDIR:-/tmp}/pacman-disowned-$UID-$$"
-local db="$tmp/db"
-local fs="$tmp/fs"
+mkdir "${tmp}"
+trap "\rm --recursive ${tmp}" EXIT
 
-mkdir "$tmp"
-trap  'rm -rf "$tmp"' EXIT
-
-pacman --quiet --query --list | sort --unique > "$db"
+pacman --quiet --query --list | sort --unique > "${db}"
 
 find /etc /usr /var \
-  ! -name lost+found \
-  -path /var/lib/docker -prune -o \
-    \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
+    '(' \
+        -path /var/lib/docker \
+        -or '(' -type d -and -name '.snapshots' ')' \
+        -or '(' -type d -and -name 'lost+found' ')' \
+    ')' -prune \
+    -or -type d -printf '%p/\n' \
+    -or -print \
+    | sort > "${fs}"
 
-comm -23 "$fs" "$db"
-
-# }
+comm -23 "${fs}" "${db}"
