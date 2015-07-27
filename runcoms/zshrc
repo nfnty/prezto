@@ -17,9 +17,6 @@ KEYTIMEOUT='1'
 
 export GPG_TTY="$( tty )"
 
-alias gpgon='gpg-agent --daemon >/dev/null'
-alias gpgoff='pkill --uid "$USER" --exact gpg-agent'
-
 ssh_array=('rservy' 'nservy')
 for remote in $ssh_array; do
     alias "$remote"="ssh $remote"
