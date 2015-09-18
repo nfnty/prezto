@@ -54,6 +54,7 @@ bindkey -M viins '^[OB' history-substring-search-down
 bindkey -M viins '^[OC' forward-char
 bindkey -M viins '^[OD' backward-char
 bindkey -M viins '^[[Z' reverse-menu-complete
+bindkey -M viins '^[[200~' bracketed-paste
 bindkey -M viins ' ' magic-space
 bindkey -M viins '^?' backward-delete-char
 
@@ -66,6 +67,7 @@ bindkey -M vicmd '^[[A' up-history
 bindkey -M vicmd '^[[B' down-history
 bindkey -M vicmd '^[OA' up-history
 bindkey -M vicmd '^[OB' down-history
+bindkey -M vicmd '^[[200~' bracketed-paste
 bindkey -M vicmd '"' vi-set-buffer
 bindkey -M vicmd 'gcc' vi-pound-insert
 bindkey -M vicmd '$' vi-end-of-line
