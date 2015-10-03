@@ -12,6 +12,7 @@ fi
 
 # Customize to your needs...
 
+stty -ixoff
 stty -ixon
 
 export GPG_TTY="$( tty )"
