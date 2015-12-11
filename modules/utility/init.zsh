@@ -59,6 +59,7 @@ alias p='${(z)PAGER}'
 alias po='popd'
 alias pu='pushd'
 alias rm="${aliases[rm]:-rm} -I"
+alias ip="${aliases[ip]:-ip} --color"
 alias type='type -a'
 
 # ls
