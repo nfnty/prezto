@@ -9,10 +9,10 @@
 # Settings
 #
 #
-_git_log_long_format='%H%d%n%ci <%an %ae> %ai <%cn %ce>%n%s%n%+b'
-_git_log_medium_format='%H%d%n%cr <%an %ae> %ar <%cn %ce>%n%s%n%+b'
+_git_log_long_format='%H%d%n%ci <%cn %ce> %ai <%an %ae>%n%s%n%+b'
+_git_log_medium_format='%H%d%n%cr <%cn %ce> %ar <%an %ae>%n%s%n%+b'
 _git_log_oneline_format='%h %s%d%n'
-_git_log_brief_format='%h %s%d%n%cr <%an %ae> %ar <%cn %ce>%n'
+_git_log_brief_format='%h %s%d%n%cr <%cn %ce> %ar <%an %ae>%n'
 
 # Status
 zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_submodules' \
