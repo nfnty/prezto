@@ -26,50 +26,45 @@ if [[ -e "${XDG_DATA_HOME}/ssh/config" ]]; then
     unset ssh_array
 fi
 
-bindkey -rpM viins ''
-bindkey -rpM vicmd ''
-bindkey -rpM viopp ''
-bindkey -rpM visual ''
+bindkey -M viins -r -p ''
+bindkey -M vicmd -r -p ''
+bindkey -M viopp -r -p ''
+bindkey -M visual -r -p ''
 
-bindkey -RM viins '0-9' self-insert
-bindkey -RM viins 'a-z' self-insert
-bindkey -RM viins 'A-Z' self-insert
-bindkey -RM viins '!-~' self-insert
-bindkey -RM viins '^A-^Z' self-insert
-bindkey -RM viins '^!-^~' self-insert
-bindkey -M viins '^D' list-choices
-bindkey -M viins '^E' edit-command-line
-bindkey -M viins '^I' expand-or-complete-with-indicator
-bindkey -M viins '^L' clear-screen
-bindkey -M viins '^M' accept-line
-bindkey -M viins '^R' redisplay
-bindkey -M viins '^U' vi-kill-line
-bindkey -M viins '^W' vi-backward-kill-word
-bindkey -M viins '^[' vi-cmd-mode
-bindkey -M viins '^P' expand-cmd-path
-bindkey -M viins '^[[A' history-substring-search-up
-bindkey -M viins '^[[B' history-substring-search-down
-bindkey -M viins '^[[C' forward-char
-bindkey -M viins '^[[D' backward-char
-bindkey -M viins '^[OA' history-substring-search-up
-bindkey -M viins '^[OB' history-substring-search-down
-bindkey -M viins '^[OC' forward-char
-bindkey -M viins '^[OD' backward-char
-bindkey -M viins '^[[Z' reverse-menu-complete
-bindkey -M viins '^[[200~' bracketed-paste
+bindkey -M viins -R '\x00-\xFF' self-insert
+bindkey -M viins '\e' vi-cmd-mode
+bindkey -M viins '\t' expand-or-complete-with-indicator
+bindkey -M viins '\r' accept-line
+bindkey -M viins '\C?' backward-delete-char
+bindkey -M viins '\e[A' history-substring-search-up
+bindkey -M viins '\e[B' history-substring-search-down
+bindkey -M viins '\e[C' forward-char
+bindkey -M viins '\e[D' backward-char
+bindkey -M viins '\eOA' history-substring-search-up
+bindkey -M viins '\eOB' history-substring-search-down
+bindkey -M viins '\eOC' forward-char
+bindkey -M viins '\eOD' backward-char
+bindkey -M viins '\e[Z' reverse-menu-complete
+bindkey -M viins '\e[200~' bracketed-paste
+bindkey -M viins '\CD' list-choices
+bindkey -M viins '\CE' edit-command-line
+bindkey -M viins '\CL' clear-screen
+bindkey -M viins '\CR' redisplay
+bindkey -M viins '\CU' vi-kill-line
+bindkey -M viins '\CW' vi-backward-kill-word
+bindkey -M viins '\CP' expand-cmd-path
 bindkey -M viins ' ' magic-space
-bindkey -M viins '^?' backward-delete-char
 
-bindkey -M vicmd '^D' list-choices
-bindkey -M vicmd '^L' clear-screen
-bindkey -M vicmd '^M' accept-line
-bindkey -M vicmd '^E' edit-command-line
+bindkey -M vicmd '\CD' list-choices
+bindkey -M vicmd '\CL' clear-screen
+bindkey -M vicmd '\CM' accept-line
+bindkey -M vicmd '\CE' edit-command-line
 bindkey -M vicmd 'X' redo
-bindkey -M vicmd '^[[A' up-history
-bindkey -M vicmd '^[[B' down-history
-bindkey -M vicmd '^[OA' up-history
-bindkey -M vicmd '^[OB' down-history
-bindkey -M vicmd '^[[200~' bracketed-paste
+bindkey -M vicmd '\e[A' up-history
+bindkey -M vicmd '\e[B' down-history
+bindkey -M vicmd '\eOA' up-history
+bindkey -M vicmd '\eOB' down-history
+bindkey -M vicmd '\e[200~' bracketed-paste
 bindkey -M vicmd '"' vi-set-buffer
 bindkey -M vicmd 'gcc' vi-pound-insert
 bindkey -M vicmd '$' vi-end-of-line
@@ -78,7 +73,7 @@ bindkey -M vicmd ',' vi-rev-repeat-find
 bindkey -M vicmd '.' vi-repeat-change
 bindkey -M vicmd '/' history-incremental-pattern-search-forward
 bindkey -M vicmd '0' vi-digit-or-beginning-of-line
-bindkey -RM vicmd '1-9' digit-argument
+bindkey -M vicmd -R '1-9' digit-argument
 bindkey -M vicmd ';' vi-repeat-find
 bindkey -M vicmd '?' history-incremental-pattern-search-backward
 bindkey -M vicmd 'A' vi-add-eol
@@ -106,7 +101,7 @@ bindkey -M vicmd 'd' vi-delete
 bindkey -M vicmd 'j' vi-forward-word-end
 bindkey -M vicmd 'f' vi-find-next-char
 bindkey -M vicmd 'gJ' vi-backward-blank-word-end
-bindkey -M vicmd '^G' what-cursor-position
+bindkey -M vicmd '\CG' what-cursor-position
 bindkey -M vicmd 'gj' vi-backward-word-end
 bindkey -M vicmd 'gg' beginning-of-buffer-or-history
 bindkey -M vicmd 'h' vi-backward-char
@@ -128,11 +123,11 @@ bindkey -M vicmd 'y' vi-yank
 bindkey -M vicmd 'Y' vi-yank-eol
 bindkey -M vicmd '~' vi-oper-swap-case
 
-bindkey -M viopp '^[' vi-cmd-mode
-bindkey -M viopp '^[OA' up-line
-bindkey -M viopp '^[OB' down-line
-bindkey -M viopp '^[[A' up-line
-bindkey -M viopp '^[[B' down-line
+bindkey -M viopp '\e' vi-cmd-mode
+bindkey -M viopp '\eOA' up-line
+bindkey -M viopp '\eOB' down-line
+bindkey -M viopp '\e[A' up-line
+bindkey -M viopp '\e[B' down-line
 bindkey -M viopp 'aW' select-a-blank-word
 bindkey -M viopp 'aa' select-a-shell-word
 bindkey -M viopp 'aw' select-a-word
@@ -142,10 +137,10 @@ bindkey -M viopp 'iw' select-in-word
 bindkey -M viopp 'e' down-line
 bindkey -M viopp 'u' up-line
 
-bindkey -M visual '^[OA' up-line
-bindkey -M visual '^[OB' down-line
-bindkey -M visual '^[[A' up-line
-bindkey -M visual '^[[B' down-line
+bindkey -M visual '\eOA' up-line
+bindkey -M visual '\eOB' down-line
+bindkey -M visual '\e[A' up-line
+bindkey -M visual '\e[B' down-line
 bindkey -M visual 'aW' select-a-blank-word
 bindkey -M visual 'aa' select-a-shell-word
 bindkey -M visual 'aw' select-a-word
