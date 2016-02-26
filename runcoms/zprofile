@@ -24,6 +24,8 @@ export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export SSH_AUTH_SOCK="${GNUPGHOME}/S.gpg-agent.ssh"
 
 export GOPATH="${DATADIR}/storage/gopath"
+export GOBIN="${GOPATH}/bin"
+export PATH="${PATH}:${GOBIN}"
 export CARGO_HOME="${DATADIR}/storage/cargo"
 
 export ESCDELAY='0'
