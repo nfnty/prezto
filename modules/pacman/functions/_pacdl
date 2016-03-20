@@ -1,0 +1,3 @@
+#compdef pacdl
+IFS=$'\n'
+compadd $( pacman --sync --list --quiet )
