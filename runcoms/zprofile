@@ -5,10 +5,12 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export QT_STYLE_OVERRIDE='gtk'
-export RANGER_LOAD_DEFAULT_RC='FALSE'
 export XAUTHORITY="${XDG_CACHE_HOME}/xorg/Xauthority"
 export PULSE_COOKIE="${XDG_CACHE_HOME}/pulseaudio/cookie"
+
+export VIMPERATOR_INIT=":source ${XDG_CONFIG_HOME}/vimperator/init"
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+export SSH_AUTH_SOCK="${GNUPGHOME}/S.gpg-agent.ssh"
 
 export ASPROOT="${XDG_DATA_HOME}/asp"
 export GIMP2_DIRECTORY="${XDG_DATA_HOME}/gimp"
@@ -16,18 +18,17 @@ export IPYTHONDIR="${XDG_DATA_HOME}/ipython"
 export PYLINTHOME="${XDG_DATA_HOME}/pylint"
 export VIMPERATOR_RUNTIME="${XDG_DATA_HOME}/vimperator"
 
-export VIMPERATOR_INIT=":source ${XDG_CONFIG_HOME}/vimperator/init"
-export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
-export SSH_AUTH_SOCK="${GNUPGHOME}/S.gpg-agent.ssh"
-
 export DATADIR='/data'
+export CARGO_HOME="${DATADIR}/storage/cargo"
 export GOPATH="${DATADIR}/storage/gopath"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
-export CARGO_HOME="${DATADIR}/storage/cargo"
 
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
+
+export QT_STYLE_OVERRIDE='gtk'
+export RANGER_LOAD_DEFAULT_RC='FALSE'
 
 #
 # Browser
