@@ -27,7 +27,7 @@ export PATH="${PATH}:${GOBIN}"
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
 
-export QT_STYLE_OVERRIDE='gtk'
+export QT_STYLE_OVERRIDE='gtk2'
 export RANGER_LOAD_DEFAULT_RC='FALSE'
 
 #
