@@ -20,6 +20,7 @@ export VIMPERATOR_RUNTIME="${XDG_DATA_HOME}/vimperator"
 
 export DATADIR='/data'
 export CARGO_HOME="${DATADIR}/storage/cargo"
+export PATH="${PATH}:${CARGO_HOME}/bin"
 export GOPATH="${DATADIR}/storage/gopath"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
