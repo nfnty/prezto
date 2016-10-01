@@ -24,6 +24,7 @@ export PATH="${PATH}:${CARGO_HOME}/bin"
 export GOPATH="${DATADIR}/storage/gopath"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
+export PYTHONPATH="${DATADIR}/scripts/lib/python"
 
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
