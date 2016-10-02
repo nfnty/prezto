@@ -29,7 +29,7 @@ export PYTHONPATH="${DATADIR}/scripts/lib/python"
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
 
-export QT_STYLE_OVERRIDE='gtk2'
+export QT_QPA_PLATFORMTHEME='gtk2'
 export RANGER_LOAD_DEFAULT_RC='FALSE'
 
 #
