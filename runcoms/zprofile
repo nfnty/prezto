@@ -26,7 +26,15 @@ export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
 export PYTHONPATH="${DATADIR}/scripts/lib/python"
 export RUSTUP_HOME="${DATADIR}/storage/multirust"
-export RUST_SRC_PATH="${RUSTUP_HOME}/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+() {
+    local rust_sysroot="$( rustc --print sysroot 2> /dev/null )"
+    if [[ -n "${rust_sysroot}" ]]; then
+        local rust_sysroot_src="${rust_sysroot}/lib/rustlib/src/rust/src"
+        if [[ -e "${rust_sysroot_src}" ]]; then
+            export RUST_SRC_PATH="${rust_sysroot_src}"
+        fi
+    fi
+}
 
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
