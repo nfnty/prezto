@@ -17,14 +17,17 @@ stty -ixon
 
 export GPG_TTY="$( tty )"
 
-if [[ -e "${XDG_DATA_HOME}/ssh/config" ]]; then
-    for remote in $( cat "${XDG_DATA_HOME}/ssh/config" | grep '^Host \w\+' | cut --delimiter=' ' --fields=2 ); do
-        alias "s${remote}"="ssh ${remote}"
-        alias "m${remote}"="sshfs ${remote}: /remote/${remote} -o cache=no"
-        alias "um${remote}"="fusermount -u /remote/${remote}"
-    done
-    unset ssh_array
-fi
+(){
+    if [[ -e "${XDG_DATA_HOME}/ssh/config" ]]; then
+        local host
+        local IFS=$'\n'
+        for host in $( cat "${XDG_DATA_HOME}/ssh/config" | grep '^Host \w\+' | cut --delimiter=' ' --fields=2 ); do
+            alias "s${host}"="ssh ${host}"
+            alias "m${host}"="sshfs ${host}: /remote/${host} -o cache=no"
+            alias "um${host}"="fusermount -u /remote/${host}"
+        done
+    fi
+}
 
 bindkey -M viins -r -p ''
 bindkey -M vicmd -r -p ''
