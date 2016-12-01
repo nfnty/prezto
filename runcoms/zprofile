@@ -25,6 +25,8 @@ export GOPATH="${DATADIR}/storage/gopath"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
 export PYTHONPATH="${DATADIR}/scripts/lib/python"
+export RUSTUP_HOME="${DATADIR}/storage/multirust"
+export RUST_SRC_PATH="${RUSTUP_HOME}/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
