@@ -29,6 +29,8 @@ export GPG_TTY="$( tty )"
     fi
 }
 
+alias rg='rg --smart-case'
+
 bindkey -M viins -r -p ''
 bindkey -M vicmd -r -p ''
 bindkey -M viopp -r -p ''
