@@ -122,6 +122,7 @@ alias gmt='git mergetool'
 
 # Push (p)
 alias gp='git push'
+alias gpx='git push --delete'
 alias gpf='git push --force'
 alias gpa='git push --all'
 alias gpA='git push --all && git push --tags'
