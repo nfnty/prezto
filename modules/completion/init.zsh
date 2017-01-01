@@ -51,10 +51,10 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "${ZDOTDIR:-$HOME}/.zcompcache"
 
 # Case-insensitive (all), partial-word, and then substring completion.
-if zstyle -t ':prezto:module:completion:*' case-sensitive; then
+if zstyle -t ':prezto:module:completion' case-sensitive; then
   zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
   setopt CASE_GLOB
-elif zstyle -t ':prezto:module:completion:*' smart-case; then
+elif zstyle -t ':prezto:module:completion' smart-case; then
   zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:][:lower:]} r:|[._-]=* l:|=* r:|=*'
   unsetopt CASE_GLOB
 else
