@@ -27,7 +27,7 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 setopt EXTENDED_GLOB       # Needed for file modification glob modifiers with compinit
 setopt GLOB_DOTS           # Complete `.` without matching explicitly
 unsetopt LIST_AMBIGUOUS    # Always display list if ambiguous
-unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
+setopt MENU_COMPLETE       # Autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
 
 # Load and initialize the completion system ignoring insecure directories with a
@@ -55,10 +55,10 @@ if zstyle -t ':prezto:module:completion' case-sensitive; then
   zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
   setopt CASE_GLOB
 elif zstyle -t ':prezto:module:completion' smart-case; then
-  zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:][:lower:]} r:|[._-]=* l:|=* r:|=*'
+  zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'm:{[:lower:]}={[:upper:][:lower:]} l:|=* r:|=*'
   unsetopt CASE_GLOB
 else
-  zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+  zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
   unsetopt CASE_GLOB
 fi
 
