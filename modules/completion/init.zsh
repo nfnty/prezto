@@ -27,7 +27,7 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 setopt EXTENDED_GLOB       # Needed for file modification glob modifiers with compinit
 setopt GLOB_DOTS           # Complete `.` without matching explicitly
 unsetopt LIST_AMBIGUOUS    # Always display list if ambiguous
-setopt MENU_COMPLETE       # Autoselect the first completion entry.
+unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
 
 # Load and initialize the completion system ignoring insecure directories with a
