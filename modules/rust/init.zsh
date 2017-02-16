@@ -19,5 +19,6 @@ if type 'rustup' &> /dev/null; then
     local rustup_home="${RUSTUP_HOME:-$HOME/.multirust}"
     if [[ "${rust_sysroot}" == "${rustup_home}/"* ]]; then
         fpath=("${rust_sysroot}/share/zsh/site-functions" $fpath)
+        export MANPATH="${MANPATH}:${rust_sysroot}/share/man"
     fi
 fi
