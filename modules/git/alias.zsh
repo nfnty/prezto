@@ -9,10 +9,10 @@
 # Settings
 #
 #
-_git_log_long_format='%H [%G?% GS% GK]%d%n%ci <%cn %ce> %ai <%an %ae>%n%s%n%+b'
-_git_log_medium_format='%H [%G?% GS]%d%n%cr <%cn %ce> %ar <%an %ae>%n%s%n%+b'
-_git_log_oneline_format='%h %s%d%n'
-_git_log_brief_format='%h [%G?] %s%d%n%cr <%cn %ce> %ar <%an %ae>%n'
+_git_log_format_long='%H [%G?% GS% GK]%d%n%ci <%cn %ce> %ai <%an %ae>%n%s%n%+b'
+_git_log_format_medium='%H [%G?% GS]%d%n%cr <%cn %ce> %ar <%an %ae>%n%s%n%+b'
+_git_log_format_oneline='%h %s%d%n'
+_git_log_format_brief='%h [%G?] %s%d%n%cr <%cn %ce> %ar <%an %ae>%n'
 
 # Status
 zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_submodules' \
@@ -50,7 +50,7 @@ alias gcpc='git cherry-pick --continue'
 alias gcP='git cherry-pick --no-commit'
 alias gcr='git revert'
 alias gcR='git reset "HEAD^"'
-alias gcs='git show --no-color --pretty=format:"${_git_log_medium_format}"'
+alias gcs='git show --no-color --pretty=format:"${_git_log_format_medium}"'
 alias gcl='git-commit-lost'
 
 # Conflict (C)
@@ -97,21 +97,34 @@ alias giR='git reset --patch'
 alias gix='git rm -r --cached'
 alias giX='git rm -r --force --cached'
 
-# Log (l)
-alias gl='git log --topo-order --no-color --pretty=format:"${_git_log_medium_format}"'
-alias gll='git log --topo-order --no-color --pretty=format:"${_git_log_long_format}"'
-alias gls='git log --topo-order --no-color --stat --pretty=format:"${_git_log_medium_format}"'
-alias glsl='git log --topo-order --no-color --stat --pretty=format:"${_git_log_long_format}"'
-alias gld='git log --topo-order --no-color --stat --patch --pretty=format:"${_git_log_medium_format}"'
-alias gldl='git log --topo-order --no-color --stat --patch --pretty=format:"${_git_log_long_format}"'
-alias glD='git log --topo-order --no-color --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
-alias glDl='git log --topo-order --no-color --stat --patch --full-diff --pretty=format:"${_git_log_long_format}"'
-alias glo='git log --topo-order --no-color --pretty=format:"${_git_log_oneline_format}"'
-alias glg='git log --topo-order --no-color --graph --pretty=format:"${_git_log_oneline_format}"'
-alias glb='git log --topo-order --no-color --pretty=format:"${_git_log_brief_format}"'
+# Log limited (l)
+alias gl='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_medium}"'
+alias gll='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_long}"'
+alias gls='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_medium}" --stat'
+alias glsl='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_long}" --stat'
+alias gld='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_medium}" --stat --patch'
+alias gldl='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_long}" --stat --patch'
+alias glD='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_medium}" --stat --patch --full-diff'
+alias glDl='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_long}" --stat --patch --full-diff'
+alias glo='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_oneline}"'
+alias glg='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_oneline}" --graph'
+alias glb='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_brief}"'
 alias glr='git reflog --no-color'
 alias glc='git shortlog --summary --numbered'
 alias glcl='git shortlog --numbered'
+
+# Log full (L)
+alias gL='git log --topo-order --no-color --pretty=format:"${_git_log_format_medium}"'
+alias gLl='git log --topo-order --no-color --pretty=format:"${_git_log_format_long}"'
+alias gLs='git log --topo-order --no-color --pretty=format:"${_git_log_format_medium}" --stat'
+alias gLsl='git log --topo-order --no-color --pretty=format:"${_git_log_format_long}" --stat'
+alias gLd='git log --topo-order --no-color --pretty=format:"${_git_log_format_medium}" --stat --patch'
+alias gLdl='git log --topo-order --no-color --pretty=format:"${_git_log_format_long}" --stat --patch'
+alias gLD='git log --topo-order --no-color --pretty=format:"${_git_log_format_medium}" --stat --patch --full-diff'
+alias gLDl='git log --topo-order --no-color --pretty=format:"${_git_log_format_long}" --stat --patch --full-diff'
+alias gLo='git log --topo-order --no-color --pretty=format:"${_git_log_format_oneline}"'
+alias gLg='git log --topo-order --no-color --pretty=format:"${_git_log_format_oneline}" --graph'
+alias gLb='git log --topo-order --no-color --pretty=format:"${_git_log_format_brief}"'
 
 # Merge (m)
 alias gm='git merge'
