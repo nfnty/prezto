@@ -14,20 +14,9 @@ fi
 # Aliases
 #
 
-_rsync_base='rsync --verbose --progress --human-readable --hard-links'
-
-if grep -q 'xattrs' <(rsync --help 2>&1); then
-  _rsync_base="${_rsync_base} --acls --xattrs"
-fi
-
-# macOS and HFS+ Enhancements
-# https://bombich.com/kb/ccc5/credits
-if [[ "$OSTYPE" == darwin* ]] && grep -q 'file-flags' <(rsync --help 2>&1); then
-  _rsync_base="${_rsync_base} --crtimes --fileflags --protect-decmpfs --force-change"
-fi
-
-_rsync_cmd="${_rsync_base} --archive"
-_rsyncp_cmd="${_rsync_base} --recursive --links --perms --times -D"
+_rsync_base='rsync --verbose --progress --human-readable --recursive'
+_rsyncp_cmd="${_rsync_base} --hard-links --links --devices --specials --times --perms"
+_rsync_cmd="${_rsyncp_cmd} --owner --group --acls --xattrs"
 
 alias rsync-base="${_rsync_base}"
 
