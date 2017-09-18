@@ -27,7 +27,7 @@ if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" ]] && ( \
   ( [[ -n "$SSH_TTY" ]] && zstyle -t ':prezto:module:tmux:auto-start' remote ) ||
   ( [[ -z "$SSH_TTY" ]] && zstyle -t ':prezto:module:tmux:auto-start' local ) \
 ); then
-  local session_detached="$( tmux list-sessions -F '#{session_attached}:#{session_id}' | grep '^[0]' | cut --delimiter=':' --fields='2' | head --lines='1' )"
+  local session_detached="$( tmux list-sessions -F '#{session_attached}:#{session_id}' | grep '^0' | cut --delimiter=':' --fields='2' | head --lines='1' )"
   if [[ -n "${session_detached}" ]]; then
       exec tmux -f "${XDG_CONFIG_HOME}/tmux/config" attach-session -t "${session_detached}"
   else
