@@ -24,6 +24,7 @@ export GOPATH="${DATADIR}/storage/gopath"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
 export PYTHONPATH="${DATADIR}/scripts/lib/python"
+export PYTHONUSERBASE="${DATADIR}/storage/python"
 export MYPYPATH="${PYTHONPATH}"
 export RUSTUP_HOME="${DATADIR}/storage/multirust"
 
