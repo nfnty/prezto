@@ -37,10 +37,14 @@ bindkey -M vicmd -r -p ''
 bindkey -M viopp -r -p ''
 bindkey -M visual -r -p ''
 
-bindkey -M viins -R '\x20-\x7E' self-insert
+bindkey -M viins -R '\x1C-\x1F' self-insert
+bindkey -M viins '\x20' magic-space
+bindkey -M viins -R '\x21-\x7E' self-insert
+bindkey -M viins '\x7F' backward-delete-char
+bindkey -M viins -R '\x80-\xFF' self-insert
+
 bindkey -M viins '\t' expand-or-complete-with-indicator
 bindkey -M viins '\r' accept-line
-bindkey -M viins '\C?' backward-delete-char
 bindkey -M viins '\e[3~' delete-char
 bindkey -M viins '\e[A' history-substring-search-up
 bindkey -M viins '\eOA' history-substring-search-up
@@ -62,4 +66,3 @@ bindkey -M viins '\CU' vi-kill-line
 bindkey -M viins '\CK' kill-line
 bindkey -M viins '\CW' vi-backward-kill-word
 bindkey -M viins '\CP' expand-cmd-path
-bindkey -M viins ' ' magic-space
