@@ -26,13 +26,13 @@ zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_subm
 alias g='git'
 
 # Branch (b)
-alias gb='git branch'
+alias gb='git --no-pager branch'
 alias gbc='git checkout -b'
-alias gbl='git branch --verbose --verbose'
-alias gbL='git branch --verbose --verbose -a'
-alias gbx='git branch --delete'
-alias gbX='git branch -D'
-alias gbm='git branch --move'
+alias gbl='git --no-pager branch --verbose --verbose'
+alias gbL='git --no-pager branch --verbose --verbose -a'
+alias gbx='git --no-pager branch --delete'
+alias gbX='git --no-pager branch -D'
+alias gbm='git --no-pager branch --move'
 alias gbs='git show-branch'
 alias gbS='git show-branch -a'
 
