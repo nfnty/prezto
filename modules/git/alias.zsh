@@ -11,6 +11,7 @@
 #
 _git_log_format_long='%H [%G?% GS% GK]%d%n%ci <%cn %ce> %ai <%an %ae>%n%s%n%+b'
 _git_log_format_medium='%H [%G?% GS]%d%n%cr <%cn %ce> %ar <%an %ae>%n%s%n%+b'
+_git_log_format_ref_medium='%gd %H [%G?% GS]%d%n%cr <%cn %ce> %ar <%an %ae>%n%gs%n%s%n%+b'
 _git_log_format_oneline='%h %s%d%n'
 _git_log_format_brief='%h [%G?] %s%d%n%cr <%cn %ce> %ar <%an %ae>%n'
 
@@ -109,7 +110,7 @@ alias glDl='git log --max-count=128 --topo-order --no-color --pretty=format:"${_
 alias glo='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_oneline}"'
 alias glg='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_oneline}" --graph'
 alias glb='git log --max-count=128 --topo-order --no-color --pretty=format:"${_git_log_format_brief}"'
-alias glr='git reflog --no-color'
+alias glr='git log --max-count=128 --walk-reflogs --no-color --pretty=format:"${_git_log_format_ref_medium}"'
 alias glc='git shortlog --summary --numbered'
 alias glcl='git shortlog --numbered'
 
