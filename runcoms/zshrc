@@ -29,8 +29,8 @@ export GPG_TTY="$( tty )"
     fi
 }
 
-alias rg='rg --smart-case'
-alias startx="exec ${XDG_CONFIG_HOME}/xorg/startx"
+alias rg='rg --smart-case --multiline --multiline-dotall'
+alias startx="exec '${XDG_CONFIG_HOME}/xorg/startx'"
 
 bindkey -M viins -r -p ''
 bindkey -M vicmd -r -p ''
