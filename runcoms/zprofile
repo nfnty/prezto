@@ -16,15 +16,15 @@ export VIMPERATOR_RUNTIME="${XDG_DATA_HOME}/vimperator"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
 export DATADIR='/data'
-export CARGO_HOME="${DATADIR}/storage/cargo"
+export CARGO_HOME="${DATADIR}/cache/cargo"
 export PATH="${PATH}:${CARGO_HOME}/bin"
-export GOPATH="${DATADIR}/storage/gopath"
+export GOPATH="${DATADIR}/cache/gopath"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
 export PYTHONPATH="${DATADIR}/scripts/lib/python"
-export PYTHONUSERBASE="${DATADIR}/storage/python"
+export PYTHONUSERBASE="${DATADIR}/cache/python"
 export MYPYPATH="${PYTHONPATH}"
-export RUSTUP_HOME="${DATADIR}/storage/multirust"
+export RUSTUP_HOME="${DATADIR}/cache/multirust"
 
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
