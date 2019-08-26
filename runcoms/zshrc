@@ -66,3 +66,4 @@ bindkey -M viins '\CU' vi-kill-line
 bindkey -M viins '\CK' kill-line
 bindkey -M viins '\CW' vi-backward-kill-word
 bindkey -M viins '\CP' expand-cmd-path
+bindkey -M viins '\CH' vi-backward-delete-char
