@@ -79,7 +79,7 @@ if is-callable 'dircolors'; then
 
     alias ls="${aliases[ls]:-ls} --color=auto"
   else
-    alias ls="${aliases[ls]:-ls} -F"
+    alias ls="${aliases[ls]:-ls} --classify"
   fi
 else
   # BSD Core Utilities
@@ -94,13 +94,13 @@ else
       export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
     fi
 
-    alias ls="${aliases[ls]:-ls} -G"
+    alias ls="${aliases[ls]:-ls} --grid"
   else
-    alias ls="${aliases[ls]:-ls} -F"
+    alias ls="${aliases[ls]:-ls} --classify"
   fi
 fi
 
-alias l='ls --long --all --group --binary --time=modified --time-style=long-iso --git'
+alias l='ls --long --all --all --group --binary --time=modified --time-style=long-iso --git'
 alias lr='l --recurse'
 alias lt='l --tree'
 
