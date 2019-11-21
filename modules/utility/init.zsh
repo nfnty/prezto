@@ -101,8 +101,8 @@ else
 fi
 
 alias l='ls --long --all --all --group --binary --time=modified --time-style=long-iso --git'
-alias lr='l --recurse'
-alias lt='l --tree'
+alias lr='ls --long --all --all --group --binary --time=modified --time-style=long-iso --git --recurse'
+alias lt='ls --long --all --group --binary --time=modified --time-style=long-iso --git --tree'
 
 # Grep
 if zstyle -t ':prezto:module:utility:grep' color; then
