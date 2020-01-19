@@ -71,13 +71,8 @@ alias pacman-list-orphans="${_pacman_sudo}${_pacman_frontend} --query --deps --u
 # Removes orphan packages.
 alias pacman-remove-orphans="${_pacman_sudo}${_pacman_frontend} --remove --recursive \$(${_pacman_frontend} --quiet --query --deps --unrequired)"
 
-# Synchronizes the local package and Arch Build System databases against the
-# repositories using the asp tool.
-if (( $+commands[asp] )); then
-  alias pacu="${_pacman_sudo}${_pacman_frontend} --sync --refresh && sudo asp update"
-else
-  alias pacu="${_pacman_sudo}${_pacman_frontend} --sync --refresh"
-fi
+# Synchronizes the local package
+alias pacu="${_pacman_sudo}${_pacman_frontend} --sync --refresh"
 
 # Synchronizes the local package database against the repositories then
 # upgrades outdated packages.
