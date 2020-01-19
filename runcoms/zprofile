@@ -5,32 +5,11 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export XAUTHORITY="${XDG_CACHE_HOME}/xorg/Xauthority"
-export PULSE_COOKIE="${XDG_CACHE_HOME}/pulseaudio/cookie"
-
-export GIMP2_DIRECTORY="${XDG_DATA_HOME}/gimp"
-export IPYTHONDIR="${XDG_DATA_HOME}/ipython"
-export PYLINTHOME="${XDG_DATA_HOME}/pylint"
-export VIMPERATOR_RUNTIME="${XDG_DATA_HOME}/vimperator"
-
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-
-export DATADIR='/data'
-export CARGO_HOME="${DATADIR}/cache/cargo"
-export PATH="${PATH}:${CARGO_HOME}/bin"
-export GOPATH="${DATADIR}/cache/gopath"
-export GOBIN="${GOPATH}/bin"
-export PATH="${PATH}:${GOBIN}"
-export PYTHONPATH="${DATADIR}/scripts/lib/python"
-export PYTHONUSERBASE="${DATADIR}/cache/python"
-export MYPYPATH="${PYTHONPATH}"
-export RUSTUP_HOME="${DATADIR}/cache/multirust"
+export LESSKEY="${XDG_CONFIG_HOME}/lesskey/output"
+export LESSHISTFILE='/dev/null'
 
 export ESCDELAY='0'
 export KEYTIMEOUT='1'
-
-export QT_QPA_PLATFORMTHEME='gtk2'
-export RANGER_LOAD_DEFAULT_RC='FALSE'
 
 #
 # Browser
@@ -40,10 +19,9 @@ export RANGER_LOAD_DEFAULT_RC='FALSE'
 # Editors
 #
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export PAGER='pager'
-export MANPAGER='pager-man'
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
 
 #
 # Language
@@ -59,6 +37,15 @@ fi
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
+
+#
+# Less
+#
+
+# Set the default Less options.
+# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
+# Remove -X and -F (exit if the content fits on one screen) to enable it.
+export LESS='-F -i -M -R -w -X -z-4'
 
 #
 # Temporary Files

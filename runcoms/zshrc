@@ -17,20 +17,7 @@ stty -ixon
 
 export GPG_TTY="$( tty )"
 
-() {
-    if [[ -e "${XDG_DATA_HOME}/ssh/config" ]]; then
-        local host
-        local IFS=$'\n'
-        for host in $( cat "${XDG_DATA_HOME}/ssh/config" | grep '^Host \w\+' | cut --delimiter=' ' --fields=2 ); do
-            alias "s${host}"="ssh ${host}"
-            alias "m${host}"="sshfs ${host}: /remote/${host} -o dir_cache=no"
-            alias "um${host}"="fusermount -u /remote/${host}"
-        done
-    fi
-}
-
 alias rg='rg --smart-case --multiline --multiline-dotall'
-alias startx="exec '${XDG_CONFIG_HOME}/xorg/startx'"
 
 bindkey -M viins -r -p ''
 bindkey -M vicmd -r -p ''

@@ -40,7 +40,6 @@ zstyle ':prezto:load' pmodule \
     'directory' \
     'spectrum' \
     'utility' \
-    'rust' \
     'completion' \
     'pacman' \
     'archive' \
@@ -216,10 +215,10 @@ zstyle ':prezto:module:terminal:multiplexer-title' format '%M: %s'
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
-# zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
